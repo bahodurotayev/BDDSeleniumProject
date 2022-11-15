@@ -1,4 +1,4 @@
-package StepDefinitions;
+package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -14,21 +14,25 @@ public class OrangeHRMSteps {
 
     @Given("I launch chrome browser")
     public void i_launch_chrome_browser() {
-        System.out.println("Given");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\tjkba\\OneDrive\\Desktop\\drivers\\ChromeDriver\\chromedriver.exe");
+        driver = new ChromeDriver();
     }
 
     @When("I open orangeHRM homepage")
     public void i_open_orange_hrm_homepage() {
-        System.out.println("When");
+        driver.get("https://opensource-demo.orangehrmlive.com");
     }
 
     @Then("I verify the logo is present")
-    public void i_verify_the_logo_is_present() {
-        System.out.println("Then");
+    public void i_verify_the_logo_is_present() throws InterruptedException {
+        Thread.sleep(2000);
+        boolean displayed = driver.findElement(By.className("orangehrm-login-logo")).isDisplayed();
+        Assert.assertEquals(true, displayed);
+
     }
 
     @And("Close browser")
     public void close_browser() {
-        System.out.println("And");
+        driver.close();
     }
 }
