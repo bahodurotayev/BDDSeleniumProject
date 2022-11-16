@@ -1,0 +1,54 @@
+Selenium with Java Cucumber Hybrid Framework
+
+Hybrid -> Hybrid Framework in Selenium is a concept where we are using the advantage
+ of both Keyword driven framework as well as Data driven framework.
+ 
+ step 1.setup & Configuration
+		i.JDK
+		ii.Eclipse or Intellij
+		iii.Cucumber plugin & Natural plugin in Eclipse or Intellij through
+			market place 
+		iV.Set Environment variables
+			a.Java Home
+			b.Maven Home
+ step 2.Create Maven Project and update pom.xml with below dependencies
+		i.Cucumeber-core
+		ii.Cucumber -html
+		iii.Coberture code coverage
+		iV.Cucumber-java
+		V.Cucumber-junit
+		Vi.Cucumber-jvm-deps
+		Vii.Cucumber-reporting
+		Viii.Hamcrest-core
+		iX.Gherkin
+		X.Junit
+		Xi.Selenium-java
+		
+ step 3.Create Folder Structure
+	Project Name
+	|
+	Features(pacgake)
+	|
+	stepDefinitions
+	|
+	utilities(package)
+	|
+	Driver(Folder)
+	|
+	Target(Reports)
+	|
+	pom.xml
+	
+step 4. Copy Driver into "Driver" folder
+step 5. Automating Login Test Case
+
+		i.Create Login.feature under Feature.File folder
+		ii.Create Page Object class LoginPage.Java under pageObjects Package
+		iii.Create steps.java under stepDefinitions package and implement required method
+		iV.Create TestRunner.java under myRanner package
+		
+step 6.Automating Add new Customer/Search customer
+	
+				
+		
+		

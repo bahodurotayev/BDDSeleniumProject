@@ -22,6 +22,7 @@ public class StepsLogin {
     @When("User open nopCommerce URL {string}")
     public void user_open_nop_commerce_url(String string)  {
             driver.get(string);
+            driver.manage().window().maximize();
     }
 
     @And("User enters valid credentials as email {string} password {string}")
