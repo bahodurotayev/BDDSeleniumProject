@@ -47,7 +47,11 @@ step 5. Automating Login Test Case
 		iii.Create steps.java under stepDefinitions package and implement required method
 		iV.Create TestRunner.java under myRanner package
 		
-step 6.Automating Add new Customer/Search customer
+step 6.Automating add new customer Test
+	i.Create a Customer.feature under Features File folder
+	ii.Create Page object class AddcustomerPage.java under pageObject package
+	iii.Add steps in to steps.java under stepDefinations package and implement required methods
+	iV.Create TestRunner.java under myRunner Package
 	
 				
 		
