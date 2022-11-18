@@ -4,12 +4,12 @@ import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pageObject.AddCustomerPage;
 import pageObject.LoginPage;
 
-public class StepsLogin {
+public class StepsLogin extends BaseClass{
 
-    public WebDriver driver;
-    public LoginPage loginPage;
+
 
     @Given("User Launch Chrome browser")
     public void user_launch_chrome_browser() {
@@ -59,5 +59,52 @@ public class StepsLogin {
     public void close_browser() {
         driver.close();
     }
+
+
+                                                                                             // Customer feature stepsDef
+
+    @Then("User can view Dashboard")
+    public void user_can_view_dashboard() {
+        addCustomer = new AddCustomerPage(driver);
+        String pageTitle = addCustomer.getPageTitle();
+        Assert.assertEquals("Dashboard / nopCommerce administration",pageTitle);
+    }
+    @When("User click on customers Menu")
+    public void user_click_on_customers_menu() {
+    addCustomer.clickCustomerMenu();
+    }
+    @And("User click on customers Menu Item")
+    public void user_click_on_customers_menu_item() {
+    addCustomer.click_customerMenu_customer();
+    }
+    @And("User click on Add new button")
+    public void user_click_on_add_new_button() {
+    addCustomer.click_addNew();
+    }
+    @Then("User can view Add new customer page")
+    public void user_can_view_add_new_customer_page() {
+    Assert.assertEquals("Add a new customer / nopCommerce administration", addCustomer.getPageTitle());
+    }
+    @When("User enter customer info")
+    public void user_enter_customer_info() {
+        String email = BaseClass.randomString();
+
+        addCustomer.setEmail(email);
+        addCustomer.setPassword("Main123");
+        addCustomer.setTextFirstName("Bob");
+        addCustomer.setTextLastName("Rayn");
+        addCustomer.selectGender("Female");
+        addCustomer.selectDOB("07/12/1994");
+        addCustomer.setCompanyName("Exelenter");
+    }
+    @And("User click on Save button")
+    public void user_click_on_save_button() {
+
+    }
+    @Then("User can view confirmation message {string}")
+    public void user_can_view_confirmation_message(String string) {
+
+    }
+
 
 }
