@@ -86,7 +86,7 @@ public class StepsLogin extends BaseClass{
     Assert.assertEquals("Add a new customer / nopCommerce administration", addCustomer.getPageTitle());
     }
     @When("User enter customer info")
-    public void user_enter_customer_info() {
+    public void user_enter_customer_info() throws InterruptedException {
         String email = BaseClass.randomString();
 
         addCustomer.setEmail(email);
@@ -96,10 +96,15 @@ public class StepsLogin extends BaseClass{
         addCustomer.selectGender("Female");
         addCustomer.selectDOB("07/12/1994");
         addCustomer.setCompanyName("Exelenter");
+        addCustomer.selectIsTaxExempt();
+        addCustomer.clickNewsLetter("Your store name");
+
+
     }
     @And("User click on Save button")
-    public void user_click_on_save_button() {
-
+    public void user_click_on_save_button() throws InterruptedException {
+        Thread.sleep(2000);
+        addCustomer.clickSaveButton();
     }
     @Then("User can view confirmation message {string}")
     public void user_can_view_confirmation_message(String string) {

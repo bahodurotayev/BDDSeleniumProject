@@ -30,6 +30,7 @@ public class AddCustomerPage {
     By date_of_birth = By.xpath("//input[@id='DateOfBirth']");
     By company_name = By.xpath("//input[@id='Company']");
     By is_tax_exempt = By.xpath("//input[@id='IsTaxExempt']");
+
     By news_letter = By.xpath("//input[@class='k-input k-readonly']");
 
 
@@ -119,4 +120,10 @@ public class AddCustomerPage {
     public String getPageTitle(){
         return ldriver.getTitle();
     }
+    public void clickNewsLetter(String value) throws InterruptedException {
+        ldriver.findElement(news_letter).click();
+        Thread.sleep(1000);
+        Select selectNewsLetter = new Select(ldriver.findElement(news_letter));
+        selectNewsLetter.selectByValue(value);
+        }
 }
