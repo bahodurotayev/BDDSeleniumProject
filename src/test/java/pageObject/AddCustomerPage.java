@@ -31,10 +31,10 @@ public class AddCustomerPage {
     By company_name = By.xpath("//input[@id='Company']");
     By is_tax_exempt = By.xpath("//input[@id='IsTaxExempt']");
 
-    By news_letter = By.xpath("//input[@class='k-input k-readonly']");
+    By news_letter = By.xpath("//select[@name='SelectedNewsletterSubscriptionStoreIds']");
 
 
-    By select_customer_role = By.xpath("//*[@id=\"customer-info\"]/div[2]/div[10]/div[2]/div/div[1]/div/div");
+    By select_customer_role = By.cssSelector("select#SelectedCustomerRoleIds");
     By customer_role_administrations = By.xpath("//select[@id='SelectedCustomerRoleIds']//option[@value='1']");
     By customer_role_forum_moderate = By.xpath("//select[@id='SelectedCustomerRoleIds']//option[@value='2']");
     By customer_role_registered = By.xpath("//select[@id='SelectedCustomerRoleIds']//option[@value='3']");
@@ -87,17 +87,10 @@ public class AddCustomerPage {
     public void selectIsTaxExempt(){
         ldriver.findElement(is_tax_exempt).click();
     }
-    public void setCustomerRole(String role){
+    public void setCustomerRole(){
 
         Select selectCustomerRoleDropDown = new Select((WebElement) select_customer_role);
-        selectCustomerRoleDropDown.deselectAll();
-        switch (role) {
-            case "Administrator": ldriver.findElement(customer_role_administrations).click(); break;
-            case "Forum Moderators": ldriver.findElement(customer_role_forum_moderate).click(); break;
-            case "Guests": ldriver.findElement(customer_role_guest).click(); break;
-            case "Registered": ldriver.findElement(customer_role_registered).click(); break;
-            case "Vendors": ldriver.findElement(customer_role_vendors).click(); break;
-        }
+        selectCustomerRoleDropDown.selectByIndex(3);
     }
 
     public void selectManagerVendor(String value){
@@ -120,10 +113,10 @@ public class AddCustomerPage {
     public String getPageTitle(){
         return ldriver.getTitle();
     }
-    public void clickNewsLetter(String value) throws InterruptedException {
-        ldriver.findElement(news_letter).click();
+    public void clickNewsLetter() throws InterruptedException {
         Thread.sleep(1000);
-        Select selectNewsLetter = new Select(ldriver.findElement(news_letter));
-        selectNewsLetter.selectByValue(value);
+        Select selectNewsLetter = new Select(ldriver.findElement(By.xpath("//select[@name='SelectedNewsletterSubscriptionStoreIds']")));
+        Thread.sleep(1000);
+        selectNewsLetter.selectByIndex(1);
         }
 }

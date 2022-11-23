@@ -74,7 +74,8 @@ public class StepsLogin extends BaseClass{
     addCustomer.clickCustomerMenu();
     }
     @And("User click on customers Menu Item")
-    public void user_click_on_customers_menu_item() {
+    public void user_click_on_customers_menu_item() throws InterruptedException {
+        Thread.sleep(1000);
     addCustomer.click_customerMenu_customer();
     }
     @And("User click on Add new button")
@@ -97,7 +98,8 @@ public class StepsLogin extends BaseClass{
         addCustomer.selectDOB("07/12/1994");
         addCustomer.setCompanyName("Exelenter");
         addCustomer.selectIsTaxExempt();
-        addCustomer.clickNewsLetter("Your store name");
+        //addCustomer.clickNewsLetter();
+        addCustomer.setCustomerRole();
 
 
     }
