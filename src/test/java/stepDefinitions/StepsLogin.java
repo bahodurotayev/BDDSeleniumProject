@@ -2,7 +2,9 @@ package stepDefinitions;
 
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObject.AddCustomerPage;
 import pageObject.LoginPage;
@@ -99,7 +101,7 @@ public class StepsLogin extends BaseClass{
         addCustomer.setCompanyName("Exelenter");
         addCustomer.selectIsTaxExempt();
         //addCustomer.clickNewsLetter();
-        addCustomer.setCustomerRole();
+        addCustomer.setAdminComment("Test case is used to check weather an application is complies with it requirements");
 
 
     }
@@ -110,8 +112,8 @@ public class StepsLogin extends BaseClass{
     }
     @Then("User can view confirmation message {string}")
     public void user_can_view_confirmation_message(String string) {
+        boolean addAlertMessage = driver.findElement(By.xpath("//div[@class='alert alert-success alert-dismissable']")).isDisplayed();
+        Assert.assertTrue(addAlertMessage);
 
     }
-
-
 }
