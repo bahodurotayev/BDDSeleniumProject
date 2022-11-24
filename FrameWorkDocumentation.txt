@@ -52,7 +52,11 @@ step 6.Automating add new customer Test
 	ii.Create Page object class AddcustomerPage.java under pageObject package
 	iii.Add steps in to steps.java under stepDefinations package and implement required methods
 	iV.Create TestRunner.java under myRunner Package
-	
-				
+
+step 7.Automating search
+	i.Add Customer search scenario to Customer.feature under Feature File folder
+	ii.Create Page Object class SearchCustomerPage.java under pageObject Package
+	iii.Add steps in to steps.java under stepDefinitions package and implement methods.
+	iV. Create TestRunner under myRunner package
 		
 		
