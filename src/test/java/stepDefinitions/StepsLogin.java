@@ -114,6 +114,20 @@ public class StepsLogin extends BaseClass{
     public void user_can_view_confirmation_message(String string) {
         boolean addAlertMessage = driver.findElement(By.xpath("//div[@class='alert alert-success alert-dismissable']")).isDisplayed();
         Assert.assertTrue(addAlertMessage);
+    }
+
+    //                                                         STEP FOR SEARCH
+
+    @And("User enter customer email")
+    public void user_enter_customer_email() {
+
+    }
+    @When("User click on search button")
+    public void user_click_on_search_button() {
+
+    }
+    @Then("User should found Email in the Search table")
+    public void user_should_found_email_in_the_search_table() {
 
     }
 }

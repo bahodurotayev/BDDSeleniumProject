@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = ".//Features/Customers.feature",
         glue = "stepDefinitions",
-        dryRun = false,
+        dryRun = true,
         monochrome = true
 )
 
