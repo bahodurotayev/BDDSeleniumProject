@@ -121,6 +121,7 @@ public class StepsLogin extends BaseClass{
 
     @And("User enter customer email")
     public void user_enter_customer_email() {
+        searchCustomer.searchBox();
         searchCustomer = new SearchCustomerPage(driver);
         searchCustomer.setEmail("victoria_victoria@nopCommerce.com");
 

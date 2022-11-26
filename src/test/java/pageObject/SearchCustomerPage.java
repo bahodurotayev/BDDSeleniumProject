@@ -95,4 +95,9 @@ public class SearchCustomerPage {
         return flag;
     }
 
+    public void searchBox(){
+        waitHelper.waitForElement(search,30);
+        search.click();
+    }
+
 }
