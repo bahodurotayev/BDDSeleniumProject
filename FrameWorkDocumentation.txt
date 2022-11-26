@@ -23,6 +23,7 @@ Hybrid -> Hybrid Framework in Selenium is a concept where we are using the advan
 		iX.Gherkin
 		X.Junit
 		Xi.Selenium-java
+		Xii.Log4j
 		
  step 3.Create Folder Structure
 	Project Name
@@ -58,5 +59,15 @@ step 7.Automating search
 	ii.Create Page Object class SearchCustomerPage.java under pageObject Package
 	iii.Add steps in to steps.java under stepDefinitions package and implement methods.
 	iV. Create TestRunner under myRunner package
+
+step 8. Adding logs using Log4J API
+    i.Copy log4j.properties file in project home directory
+    ii.Add new method setup() with @Before hook in steps.java under stepDefinistions
+    iii.Write setup code inside setup() method.
+
+step 9. Run test on desired browser
+    i.Create config.properties file in project home directory which contains common properties (browser name and paths).
+    ii.Load config.properties file and use common properties in setup() method in steps.java under stepDefinitions
+    iii.Write setup code inside setup() method
 		
 		

@@ -8,7 +8,6 @@ Feature:  Customer
     Then User can view Dashboard
 
   Scenario: Add new Customer
-
     When User click on customers Menu
     And User click on customers Menu Item
     And User click on Add new button
@@ -19,7 +18,6 @@ Feature:  Customer
     And close browser
 
     Scenario: Search Customer by EmailAddress
-
       When User click on customers Menu
       And  User click on customers Menu Item
       And User enter customer email
