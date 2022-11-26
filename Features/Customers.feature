@@ -1,11 +1,14 @@
 Feature:  Customer
 
-  Scenario: Add new Customer
+  Background: Common steps from each scenario
     Given User Launch Chrome browser
     When User open nopCommerce URL "https://admin-demo.nopcommerce.com/login"
     And User enters valid credentials as email "admin@yourstore.com" password "admin"
     And User click Login
     Then User can view Dashboard
+
+  Scenario: Add new Customer
+
     When User click on customers Menu
     And User click on customers Menu Item
     And User click on Add new button
@@ -16,11 +19,7 @@ Feature:  Customer
     And close browser
 
     Scenario: Search Customer by EmailAddress
-      Given User Launch Chrome browser
-      When User open nopCommerce URL "https://admin-demo.nopcommerce.com/login"
-      And User enters valid credentials as email "admin@yourstore.com" password "admin"
-      And User click Login
-      Then User can view Dashboard
+
       When User click on customers Menu
       And  User click on customers Menu Item
       And User enter customer email
