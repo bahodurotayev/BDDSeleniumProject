@@ -85,9 +85,10 @@ public class SearchCustomerPage {
 
     public boolean searchCustomerByEmail(String email){
         boolean flag = false;
-        for (int i = 0; i < getNumberOfRows(); i++) {
+        for (int i = 1; i < getNumberOfRows(); i++) {
             String emailId = table.findElement(By.xpath("//table[@id='customers-grid']//tbody/tr[" + i + "]/td[2]")).getText();
             System.out.println(emailId);
+
             if (emailId.equals(email)){
                 flag = true;
             }
