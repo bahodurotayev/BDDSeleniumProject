@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObject.AddCustomerPage;
 import pageObject.LoginPage;
+import pageObject.SearchCustomerPage;
 
 public class StepsLogin extends BaseClass{
 
@@ -120,14 +121,18 @@ public class StepsLogin extends BaseClass{
 
     @And("User enter customer email")
     public void user_enter_customer_email() {
+        searchCustomer = new SearchCustomerPage(driver);
+        searchCustomer.setEmail("victoria_victoria@nopCommerce.com");
 
     }
     @When("User click on search button")
-    public void user_click_on_search_button() {
-
+    public void user_click_on_search_button() throws InterruptedException {
+        searchCustomer.clickSearch();
+        Thread.sleep(2000);
     }
     @Then("User should found Email in the Search table")
     public void user_should_found_email_in_the_search_table() {
-
+        boolean status = searchCustomer.searchCustomerByEmail("victoria_victoria@nopCommerce.com");
+        Assert.assertEquals(true, status);
     }
 }
