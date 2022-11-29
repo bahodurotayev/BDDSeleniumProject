@@ -19,36 +19,42 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class StepsLogin extends BaseClass{
+
     @Before
     public void setup() throws IOException {
+        //logger = logger.getLogger("nopcommerce");// added logger
+        PropertyConfigurator.configure("Log4j.properties");
+
         // adding config properties
         //reading properties
         config = new Properties();
-        FileInputStream configProfile = new FileInputStream("drivers/config.properties");
+        FileInputStream configProfile = new FileInputStream("config.properties");
         config.load(configProfile);
 
-        logger = logger.getLogger("nopcommerce");// added logger
-        PropertyConfigurator.configure("Log4j.properties");
+        String br = config.getProperty("browser");
 
-        String browser = config.getProperty("browser");
-        if (browser.equals("chrome-path")) {
+        if (br.equals("chrome-path")) {
+
             System.setProperty("webdriver.chrome.driver", config.getProperty("chrome-path"));
             driver = new ChromeDriver();
-        }else if (browser.equals("firefox-path")){
+
+        }else if (br.equals("firefox-path")){
             System.setProperty("webdriver.gecko.driver", config.getProperty("firefox-path"));
             driver = new FirefoxDriver();
         }
-        logger.info("***Launching browser***");
+        //logger.info("***Launching browser***");
     }
 
     @Given("User Launch Chrome browser")
     public void user_launch_chrome_browser() {
+       /* System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+        driver = new ChromeDriver();*/
         loginPage = new LoginPage(driver);
     }
 
     @When("User open nopCommerce URL {string}")
     public void user_open_nop_commerce_url(String string)  {
-        logger.info("***Launching URL***");
+            //logger.info("***Launching URL***");
             driver.get(string);
             driver.manage().window().maximize();
     }
